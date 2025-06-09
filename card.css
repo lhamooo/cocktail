@@ -1,58 +1,66 @@
-.retro-card {
-  width: 300px;
-  background: #fff7f0;
-  border: 3px solid #ff4b2b;
-  border-radius: 20px;
-  box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.2);
-  font-family: 'Courier New', monospace;
-  overflow: hidden;
-  margin: 2rem auto;
+body {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  background: #fff;
+  border: 3px solid #9400FF;
+  border-radius: 2rem;
+   border: 3.5px solid #33322E;
+  -webkit-box-shadow: 10px 10px 0px 0px rgba(249,243,229,1);
+  -moz-box-shadow: 10px 10px 0px 0px rgba(249,243,229,1);
+  box-shadow: 10px 10px 0px 0px #33322E;
+  margin-top: 30px;
+  padding: 1.5rem;
   text-align: center;
-  transition: transform 0.3s;
+  width: 18vw;
+  height: 38vh;
 }
 
-.retro-card:hover {
-  transform: scale(1.02);
+.card h2{
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    margin-top: 5.5vh;
 }
 
-.retro-arc-image {
+.image-wrapper {
   position: relative;
   width: 100%;
-  height: 180px;
-  background: #ff4b2b;
-  border-bottom-left-radius: 150px 90px;
-  border-bottom-right-radius: 150px 90px;
-  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
-.retro-arc-image img {
+.circle-bg {
   position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  height: 220px;
+  height:100%;
+  background-color: #000000;
+  border-radius: 50%;
+  border: 3px #9400FF ;
+  z-index: 1;
+}
+
+.card img {
+  position: relative;
+  z-index: 2;
+  width: 14vw;
+  height: 21vh;
+  border-radius: 8rem;
   object-fit: cover;
-  top: -40px;
+  border: 3.5px solid #000000;
+  margin-top: 1.5vh;
 }
 
-.retro-card-content {
-  padding: 1rem 1.2rem 1.5rem;
-}
-
-.retro-card-content h3 {
-  color: #c0392b;
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-}
-
-.retro-card-content p {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 0.8rem;
-}
-
-.retro-card-content ul {
-  list-style-type: square;
-  padding-left: 1rem;
-  text-align: left;
-  font-size: 0.85rem;
-  color: #333;
+.card p{
+    font-family: "Roboto Flex", sans-serif;
+    margin-top: -1.5vh;
 }
