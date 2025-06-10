@@ -1,193 +1,340 @@
-
-
 body {
- background-color: #f8f9fa;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-margin: 0;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.toggle-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #33322E;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
 }
 
 .card-container {
   width: 25vw;
   height: 50vh;
   perspective: 1000px;
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.card {
-position: relative;
-width: 100%;
-height: 100%;
-text-align: center;
-transition: transform 0.6s;
-transform-style: preserve-3d;
-cursor: pointer;
-}
-.card.flipped {
-transform: rotateY(180deg);
-}
-.card-front, .card-back {
-position: absolute;
-width: 100%;
-height: 100%;
-backface-visibility: hidden;
-background: #fff;
-border-radius: 2rem;
-border: 3.5px solid #33322E;
-box-shadow: 10px 10px 0px 0px #33322E;
-padding: 1.5rem;
-box-sizing: border-box;
-}
-.card-front {
-transform: rotateY(0deg);
-}
-.card-back {
-transform: rotateY(180deg);
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-padding-top: 1.5rem;
-}
-.image-wrapper {
-position: relative;
-width: 100%;
-margin-bottom: 1rem;
-margin-top: 1.5vh;
-}
-.circle-bg {
-position: absolute;
-top: -0.5vh;
-left: 50%;
-transform: translateX(-50%);
-width: 17vw;
-height: 24vh;
-background-color: #000000;
-border-radius: 50%;
-z-index: 1;
-}
-#drink-image {
-position: relative;
-z-index: 2;
-width: 12vw;
-height: 21vh;
-border-radius: 8rem;
-object-fit: cover;
-border: 3.5px solid #000000;
-margin-top: 0.8vh;
-}
-.card-front h2 {
-font-family: 'Luckiest Guy', cursive;
-font-weight: 400;
-font-style: normal;
-font-size: 1.5rem;
-margin-top: 1rem;
-margin-bottom: 0.5rem;
-}
-.card-front p {
-font-family: "Roboto Flex", sans-serif;
-margin: 0;
-}
-.back-content h3 {
-font-family: 'Luckiest Guy', cursive;
-color: #33322E;
-margin-bottom: 0.5rem;
-font-size: 1.3rem;
-}
-.back-content {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; 
-    flex: 1;
-    margin-top: 1.5vh;
-}
-.card-container .card {
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
 }
 
-.card-container .card .card-body {
-    padding: 0 !important;
-    border-radius: 0 !important;
-    border: none !important;
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
 }
-.name{
-margin-top: 5vh;
+
+.card.flipped {
+  transform: rotateY(180deg);
 }
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #fff;
+  border-radius: 2rem;
+  border: 3.5px solid #33322E;
+  box-shadow: 10px 10px 0px 0px #33322E;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 1.5vh;
+}
+
+.circle-bg {
+  position: absolute;
+  top: -0.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 17vw;
+  height: 24vh;
+  background-color: #000000;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+#drink-image {
+  position: relative;
+  z-index: 2;
+  width: 12vw;
+  height: 21vh;
+  border-radius: 8rem;
+  object-fit: cover;
+  border: 3.5px solid #000000;
+  margin-top: 0.8vh;
+}
+
+.card-front h2 {
+  font-family: 'Luckiest Guy', cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-front p {
+  font-family: "Roboto Flex", sans-serif;
+  margin: 0;
+}
+
+.back-content h3 {
+  font-family: 'Luckiest Guy', cursive;
+  color: #33322E;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.back-content {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  margin-top: 1.5vh;
+}
+
+.name {
+  margin-top: 5vh;
+}
+
 .ingredients-container {
-display: flex;
-flex-direction: column;
-align-items: stretch;
-width: 100%;
-max-width: 85%;
-margin: 0 auto;
-padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 0.5rem;
 }
+
 .ingredient-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    margin-bottom: 0.5rem;
-    font-family: "Roboto Flex", sans-serif;
-    font-size: 0.9rem;
-    line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 .ingredient-row:last-child {
-margin-bottom: 0;
+  margin-bottom: 0;
 }
+
 .ingredient-name {
-    text-align: left;
-    font-weight: 400;
-    color: #33322E;
-    flex: 1;
-    padding-right: 1rem;
+  text-align: left;
+  font-weight: 400;
+  color: #33322E;
+  flex: 1;
+  padding-right: 1rem;
 }
+
 .ingredient-measure {
-    background-color: #33322E;
-    color: #fff;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.8rem;
-    padding: 0.3rem 0.8rem;
-    border-radius: 1.5rem;
-    white-space: nowrap;
+  background-color: #33322E;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1.5rem;
+  white-space: nowrap;
 }
+
 .back-content h3::after {
-content: '';
-display: block;
-width: 50%;
-height: 2px;
-background-color: #33322E;
-margin: 0.5rem auto 1rem auto;
+  content: '';
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: #33322E;
+  margin: 0.5rem auto 1rem auto;
 }
 
-.btn{
-    display: flex;
-    justify-content: center;
-    border-radius: 1.2rem;
-    color: white;
-    background-color: #33322E;
-    border: 2px solid #33322E;
-    height: 4.5vh;
-    transition: all 0.3s ease;
-    margin-top: 4vh;
+.btn {
+  display: flex;
+  justify-content: center;
+  border-radius: 1.2rem;
+  color: white;
+  background-color: #33322E;
+  border: 2px solid #33322E;
+  height: 4.5vh;
+  transition: all 0.3s ease;
+  margin-top: 4vh;
 }
 
-.btn:hover{
-    transform: translateY(-3px);
-     color: black;
-    background-color: white;
-    border: 2px solid #33322E;
+.btn:hover {
+  transform: translateY(-3px);
+  color: black;
+  background-color: white;
+  border: 2px solid #33322E;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 2rem;
+  border: 3.5px solid #33322E;
+  box-shadow: 10px 10px 0px 0px #33322E;
+  padding: 1.5rem;
+}
+
+.modal-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1rem 1rem;
+  border-bottom: 3px solid #33322E;
+}
+
+.modal-title {
+  display: flex;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'Luckiest Guy', cursive;
+  color: #33322E;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.btn-close-custom {
+  position: absolute;
+  right: 1rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='m.235.757 14.008 14.009m0-14.008L.235 15.766' stroke='%2333322E' stroke-width='2.5' stroke-linecap='round'/%3e%3c/svg%3e") !important;
+  width: 1.5em;
+  height: 1.5em;
+  background-size: 1.5em;
+  opacity: 1;
+  margin-top: -2vh;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-close-custom:hover {
+  transform: translateY(-3px);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-ingredients {
+  margin-bottom: 2rem;
+}
+
+.modal-ingredients h6,
+.modal-instructions h6 {
+  font-family: 'Luckiest Guy', cursive;
+  color: #33322E;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modal-ingredients h6::after,
+.modal-instructions h6::after {
+  content: '';
+  display: block;
+  width: 30%;
+  height: 2px;
+  background-color: #33322E;
+  margin: 0.5rem auto 1rem auto;
+}
+
+.modal-instructions {
+  text-align: left;
+}
+
+#recipe-instructions {
+  font-family: "Roboto Flex", sans-serif;
+  color: #33322E;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
