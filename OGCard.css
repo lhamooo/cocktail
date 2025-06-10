@@ -1,0 +1,94 @@
+body {
+ background-color: #f8f9fa;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+}
+.card-container {
+width: 20vw;
+height: 42vh;
+perspective: 1000px;
+}
+.card {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.6s;
+transform-style: preserve-3d;
+cursor: pointer;
+}
+.card.flipped {
+transform: rotateY(180deg);
+}
+.card-front, .card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+background: #fff;
+border-radius: 2rem;
+border: 3.5px solid #33322E;
+box-shadow: 10px 10px 0px 0px #33322E;
+padding: 1.5rem;
+box-sizing: border-box;
+}
+.card-front {
+transform: rotateY(0deg);
+}
+.card-back {
+transform: rotateY(180deg);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.image-wrapper {
+position: relative;
+width: 100%;
+margin-bottom: 1rem;
+}
+.circle-bg {
+position: absolute;
+top: -0.5vh;
+left: 50%;
+transform: translateX(-50%);
+width: 17vw;
+height: 24vh;
+background-color: #000000;
+border-radius: 50%;
+z-index: 1;
+}
+#drink-image {
+position: relative;
+z-index: 2;
+width: 12vw;
+height: 21vh;
+border-radius: 8rem;
+object-fit: cover;
+border: 3.5px solid #000000;
+margin-top: 0.8vh;
+}
+.card-front h2 {
+font-family: 'Luckiest Guy', cursive;
+font-weight: 400;
+font-style: normal;
+font-size: 1.5rem;
+margin-top: 1rem;
+margin-bottom: 0.5rem;
+}
+.card-front p {
+font-family: "Roboto Flex", sans-serif;
+margin: 0;
+}
+.back-content h2 {
+font-family: 'Luckiest Guy', cursive;
+font-size: 2rem;
+color: #33322E;
+margin: 0;
+}
+
+.name{
+  margin-top: 3.5vh;
+}
