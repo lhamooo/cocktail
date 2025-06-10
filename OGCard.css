@@ -1,3 +1,5 @@
+
+
 body {
  background-color: #f8f9fa;
 display: flex;
@@ -6,10 +8,16 @@ align-items: center;
 height: 100vh;
 margin: 0;
 }
+
 .card-container {
-width: 20vw;
-height: 42vh;
-perspective: 1000px;
+  width: 25vw;
+  height: 50vh;
+  perspective: 1000px;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .card {
 position: relative;
@@ -41,13 +49,16 @@ transform: rotateY(0deg);
 .card-back {
 transform: rotateY(180deg);
 display: flex;
-justify-content: center;
+flex-direction: column;
+justify-content: flex-start;
 align-items: center;
+padding-top: 1.5rem;
 }
 .image-wrapper {
 position: relative;
 width: 100%;
 margin-bottom: 1rem;
+margin-top: 1.5vh;
 }
 .circle-bg {
 position: absolute;
@@ -82,13 +93,101 @@ margin-bottom: 0.5rem;
 font-family: "Roboto Flex", sans-serif;
 margin: 0;
 }
-.back-content h2 {
+.back-content h3 {
 font-family: 'Luckiest Guy', cursive;
-font-size: 2rem;
 color: #33322E;
-margin: 0;
+margin-bottom: 0.5rem;
+font-size: 1.3rem;
+}
+.back-content {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    flex: 1;
+    margin-top: 1.5vh;
+}
+.card-container .card {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
 }
 
+.card-container .card .card-body {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
 .name{
-  margin-top: 3.5vh;
+margin-top: 5vh;
+}
+.ingredients-container {
+display: flex;
+flex-direction: column;
+align-items: stretch;
+width: 100%;
+max-width: 85%;
+margin: 0 auto;
+padding: 0.5rem;
+}
+.ingredient-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.ingredient-row:last-child {
+margin-bottom: 0;
+}
+.ingredient-name {
+    text-align: left;
+    font-weight: 400;
+    color: #33322E;
+    flex: 1;
+    padding-right: 1rem;
+}
+.ingredient-measure {
+    background-color: #33322E;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1.5rem;
+    white-space: nowrap;
+}
+.back-content h3::after {
+content: '';
+display: block;
+width: 50%;
+height: 2px;
+background-color: #33322E;
+margin: 0.5rem auto 1rem auto;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    border-radius: 1.2rem;
+    color: white;
+    background-color: #33322E;
+    border: 2px solid #33322E;
+    height: 4.5vh;
+    transition: all 0.3s ease;
+    margin-top: 4vh;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+     color: black;
+    background-color: white;
+    border: 2px solid #33322E;
 }
