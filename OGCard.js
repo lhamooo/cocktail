@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const cardsContainer = document.getElementById("cards-container");
   document.querySelector('[data-flavor="all"]').classList.add("active");
 
-  // Setzt den Dark oder Light Theme + Titel + Bild
   function applyTheme(withAlcohol) {
     if (withAlcohol) {
       document.body.classList.remove("light-theme");
@@ -108,7 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.getElementById("title-line-1").textContent = "less thinking";
       document.getElementById("title-line-2").textContent = "more drinking";
-      document.getElementById("first-img").src = "img/drink.jpg"; // Pfad anpassen
+      document.getElementById("first-img").src = "img/drink.jpg";
+      document.getElementById("cocktail-icon").src = "img/cocktailWhite.png";
+      document.getElementById("soft-icon").src = "img/softWhite.png";
     } else {
       document.body.classList.remove("dark-theme");
       document.body.classList.add("light-theme");
@@ -116,18 +117,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.getElementById("title-line-1").textContent = "sober, but";
       document.getElementById("title-line-2").textContent = "never boring";
-      document.getElementById("first-img").src = "img/smoothie.jpg"; // Pfad anpassen
+      document.getElementById("first-img").src = "img/smoothie.jpg";
+      document.getElementById("cocktail-icon").src = "img/cocktail.png";
+      document.getElementById("soft-icon").src = "img/soft.png";
     }
+
+    document.querySelectorAll("#alcohol-icon").forEach((icon) => {
+      const isDark = document.body.classList.contains("dark-theme");
+      const isAlcohol = icon.alt === "alcohol";
+      icon.src = isAlcohol
+        ? isDark
+          ? "img/cocktailWhite.png"
+          : "img/cocktail.png"
+        : isDark
+        ? "img/softWhite.png"
+        : "img/soft.png";
+    });
   }
 
-  // Eventlistener für Toggle
   toggle.addEventListener("change", function () {
-    const withAlcohol = !this.checked; // checked = ohne Alkohol, daher negieren
+    const withAlcohol = !this.checked;
     applyTheme(withAlcohol);
     loadDrinks(withAlcohol);
   });
 
-  // Default Wert beim Laden
   const defaultWithAlcohol = true;
   toggle.checked = !defaultWithAlcohol;
   applyTheme(defaultWithAlcohol);
@@ -135,19 +148,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentFlavor = "all";
 
-  // Flavor-Buttons
   document.querySelectorAll(".flavor-btn").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelectorAll(".flavor-btn").forEach((btn) =>
-        btn.classList.remove("active")
-      );
+      document
+        .querySelectorAll(".flavor-btn")
+        .forEach((btn) => btn.classList.remove("active"));
       button.classList.add("active");
       currentFlavor = button.dataset.flavor;
-      loadDrinks(!toggle.checked); // Toggle checked ist ohne Alkohol
+      loadDrinks(!toggle.checked);
     });
   });
 
-  // Lade Getränke basierend auf Thema und Filter
   async function loadDrinks(withAlcohol) {
     try {
       const endpoint = withAlcohol
@@ -159,7 +170,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await response.json();
       const drinks = data.drinks;
 
-      // Filter nach Geschmack
       const filteredDrinks = drinks.filter((drink) => {
         if (currentFlavor === "all") return true;
         const name = drink.strDrink.toLowerCase();
@@ -202,7 +212,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const alcoholIcon = document.createElement("img");
         alcoholIcon.id = "alcohol-icon";
         alcoholIcon.alt = withAlcohol ? "alcohol" : "non alcohol";
-        alcoholIcon.src = withAlcohol ? "img/cocktail.png" : "img/soft.png";
+        const isDark = document.body.classList.contains("dark-theme");
+        alcoholIcon.src = withAlcohol
+          ? isDark
+            ? "img/cocktailWhite.png"
+            : "img/cocktail.png"
+          : isDark
+          ? "img/softWhite.png"
+          : "img/soft.png";
+
         alcoholIcon.style.marginTop = "0.75rem";
         alcoholIcon.style.width = "25px";
         alcoholIcon.style.height = "25px";
@@ -295,7 +313,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Modal Inhalt füllen
   function displayModalContent(drink) {
     const modalIngredientsList = document.getElementById(
       "modal-ingredients-list"

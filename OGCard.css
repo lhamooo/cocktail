@@ -363,7 +363,7 @@ body.dark-theme .ingredient-row {
   font-family: "Roboto Flex", sans-serif;
   font-size: 0.9rem;
   line-height: 1.2;
-  color: white;
+  color: #33322e;
 }
 
 body.light-theme .ingredient-row {
@@ -449,7 +449,7 @@ body.dark-theme .btn {
   margin-top: 4vh;
 }
 
-body.white-theme .btn {
+body.light-theme .btn {
   display: flex;
   justify-content: center;
   border-radius: 1.2rem;
@@ -468,7 +468,7 @@ body.white-theme .btn {
   border: 2px solid #33322e;
 }
 
-.modal-content {
+body.light-theme .modal-content {
   background: #fff;
   border-radius: 2rem;
   border: 3.5px solid #33322e;
@@ -476,7 +476,15 @@ body.white-theme .btn {
   padding: 1.5rem;
 }
 
-.modal-top {
+body.dark-theme .modal-content {
+  background: black;
+  border-radius: 2rem;
+  border: 3.5px solid white;
+  box-shadow: 10px 10px 0px 0px white;
+  padding: 1.5rem;
+}
+
+body.light-theme .modal-top {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -485,7 +493,16 @@ body.white-theme .btn {
   border-bottom: 3px solid #33322e;
 }
 
-.modal-title {
+body.dark-theme .modal-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1rem 1rem;
+  border-bottom: 3px solid white;
+}
+
+body.light-theme .modal-title {
   display: flex;
   margin: 0;
   font-weight: 500;
@@ -496,7 +513,18 @@ body.white-theme .btn {
   font-size: 1.5rem;
 }
 
-.btn-close-custom {
+body.dark-theme .modal-title {
+  display: flex;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+  font-family: "Luckiest Guy", cursive;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+body.light-theme .btn-close-custom {
   position: absolute;
   right: 1rem;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='m.235.757 14.008 14.009m0-14.008L.235 15.766' stroke='%2333322E' stroke-width='2.5' stroke-linecap='round'/%3e%3c/svg%3e") !important;
@@ -508,6 +536,20 @@ body.white-theme .btn {
   padding: 0;
   transition: all 0.3s ease;
 }
+
+body.dark-theme .btn-close-custom {
+  position: absolute;
+  right: 1rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='m.235.757 14.008 14.009m0-14.008L.235 15.766' stroke='%23FFFFFF' stroke-width='2.5' stroke-linecap='round'/%3e%3c/svg%3e") !important;
+  width: 1.5em;
+  height: 1.5em;
+  background-size: 1.5em;
+  opacity: 1;
+  margin-top: -2vh;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
 
 .btn-close-custom:hover {
   transform: translateY(-3px);
@@ -521,8 +563,22 @@ body.white-theme .btn {
   margin-bottom: 2rem;
 }
 
-.modal-ingredients h6,
-.modal-instructions h6 {
+body.dark-theme .modal-ingredients h6 {
+  font-family: "Luckiest Guy", cursive;
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+body.dark-theme .modal-instructions h6 {
+  font-family: "Luckiest Guy", cursive;
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+body.light-theme .modal-ingredients h6 {
   font-family: "Luckiest Guy", cursive;
   color: #33322e;
   font-size: 1.1rem;
@@ -530,8 +586,42 @@ body.white-theme .btn {
   text-align: center;
 }
 
-.modal-ingredients h6::after,
-.modal-instructions h6::after {
+body.light-theme .modal-instructions h6 {
+  font-family: "Luckiest Guy", cursive;
+  color: #33322e;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+body.dark-theme .modal-ingredients h6::after {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 2px;
+  background-color: white;
+  margin: 0.5rem auto 1rem auto;
+}
+
+body.dark-theme .modal-instructions h6::after {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 2px;
+  background-color: white;
+  margin: 0.5rem auto 1rem auto;
+}
+
+body.light-theme .modal-ingredients h6::after {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 2px;
+  background-color: #33322e;
+  margin: 0.5rem auto 1rem auto;
+}
+
+body.light-theme .modal-instructions h6::after {
   content: "";
   display: block;
   width: 30%;
@@ -544,7 +634,14 @@ body.white-theme .btn {
   text-align: left;
 }
 
-#recipe-instructions {
+body.dark-theme #recipe-instructions {
+  font-family: "Roboto Flex", sans-serif;
+  color: white;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+body.light-theme #recipe-instructions {
   font-family: "Roboto Flex", sans-serif;
   color: #33322e;
   line-height: 1.5;
@@ -567,8 +664,8 @@ body.white-theme .btn {
 
 .nav-container {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   height: 80px;
@@ -586,8 +683,8 @@ body.white-theme .btn {
   display: flex;
   list-style: none;
   gap: 2rem;
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
   margin-right: -39rem;
 }
 
