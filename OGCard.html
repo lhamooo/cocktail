@@ -12,16 +12,47 @@
   <link rel="stylesheet" href="OGCard.css">
 </head>
 <body>
-  <div class="toggle-container">
-    <label class="switch">
-      <input type="checkbox" id="alcohol-toggle">
-      <span class="slider round"></span>
-    </label>
-    <span id="toggle-label">Mit Alkohol</span>
-  </div>
+<div class="topp">
+     <nav class="navbar">
+        <div class="nav-container">
+             <a class="logo" href="OGCard.html"><img src="img/logo.png" width="55" height="55"></a>
+            <ul class="nav-links">
+                <li><a href="page2.html">random</a></li>
+                <li><a href="page3.html">random.exe</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <h1 class="title"  id="title-line-1">less thinking</h1>
+        <h1 class="title"  id="title-line-2">more drinking</h1>  
+        <div>
+            <div class="toggle-container">
+                <img class="cocktailIcon" src="img/cocktail.png" alt="drinkIcon" width="25" height="25">
+            <label class="switch">
+            <input type="checkbox" id="alcohol-toggle">
+            <span class="slider round"></span>
+            </label>
+            <img class="Icon" src="img/soft.png" alt="softDrinkIcon" width="25" height="25">
+            <span id="toggle-label"></span>
+
+            
+        </div>
+        <div class="flavor-filter-container">
+  <button class="flavor-btn" data-flavor="all">All</button>
+  <button class="flavor-btn" data-flavor="sweet">Sweet</button>
+  <button class="flavor-btn" data-flavor="sour">Sour</button>
+  <button class="flavor-btn" data-flavor="fruity">Fruity</button>
+  <button class="flavor-btn" data-flavor="bitter">Bitter</button>
+</div>
+        </div>
+    </div>
+    <img id="first-img" class="drinkImg" src="img/drink.jpg" alt="drinkPic" width="400" height="400">
+</div>
+</div>
 
   <div class="cards-container" id="cards-container">
-    <!-- Hier werden die Karten eingefügt -->
+
   </div>
 
   <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">

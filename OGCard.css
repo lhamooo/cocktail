@@ -1,4 +1,4 @@
-body {
+body.light-theme {
   background-color: #f8f9fa;
   display: flex;
   flex-direction: column;
@@ -6,10 +6,77 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  padding-top: 60px;
+}
+
+body.dark-theme {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 60px;
+}
+
+body.dark-theme .title {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 5rem;
+  color: transparent;
+  -webkit-text-stroke: 1.5px white;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+body.dark-theme .title:hover {
+  transform: scale(1.2) rotate(-2deg);
+  text-shadow: 3px 3px 0 #ffffff, -3px -3px 0 #fa95f5;
+}
+
+body.light-theme .title {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 5rem;
+  transition: all 0.3s ease-in-out;
+}
+.topp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17rem;
+}
+
+body.light-theme .drinkImg {
+  object-fit: cover;
+  border-radius: 5rem;
+  border: 3.5px solid black;
+  -webkit-box-shadow: 10px 10px 0px 0px rgba(249, 243, 229, 1);
+  -moz-box-shadow: 10px 10px 0px 0px rgba(249, 243, 229, 1);
+  box-shadow: 10px 10px 0px 0px black;
+  margin-top: 8vh;
+}
+
+body.dark-theme .drinkImg {
+  object-fit: cover;
+  border-radius: 5rem;
+  border: 3.5px solid white;
+  -webkit-box-shadow: 10px 10px 0px 0px rgba(249, 243, 229, 1);
+  -moz-box-shadow: 10px 10px 0px 0px rgba(249, 243, 229, 1);
+  box-shadow: 10px 10px 0px 0px white;
+  margin-top: 8vh;
+}
+
+.cocktailIcon {
+  margin-right: 0.5vw;
+}
+
+.softDrinkIcon {
+  margin-left: 0.5vw;
 }
 
 .toggle-container {
-  margin: 20px auto;
+  margin-left: -20vw;
+  margin-top: 5vh;
   text-align: center;
 }
 
@@ -26,18 +93,40 @@ body {
   height: 0;
 }
 
-.slider {
+body.light-theme .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
+  background-color: #33322e;
+  transition: 0.4s;
 }
 
-.slider:before {
+body.dark-theme .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  transition: 0.4s;
+}
+
+body.dark-theme .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #33322e;
+  transition: 0.4s;
+}
+
+body.light-theme .slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -45,11 +134,11 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #33322E;
+  background-color: #33322e;
 }
 
 input:checked + .slider:before {
@@ -68,14 +157,21 @@ input:checked + .slider:before {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 4rem;
   margin: 20px;
+  margin-top: 7vh;
 }
 
 .card-container {
   width: 25vw;
   height: 50vh;
   perspective: 1000px;
+  transition: transform 0.3s ease; /* Dauer & Timing */
+  will-change: transform;
+}
+
+.card-container:hover {
+  transform: scale(1.05); /* Wert anpassen, z. B. 1.08 für stärker */
 }
 
 .card {
@@ -86,21 +182,53 @@ input:checked + .slider:before {
   transition: transform 0.6s;
   transform-style: preserve-3d;
   cursor: pointer;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 2rem !important;
 }
 
 .card.flipped {
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+body.light-theme .card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   background: #fff;
   border-radius: 2rem;
-  border: 3.5px solid #33322E;
-  box-shadow: 10px 10px 0px 0px #33322E;
+  border: 3.5px solid #33322e;
+  box-shadow: 10px 10px 0px 0px #33322e;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+body.light-theme .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #fff;
+  border-radius: 2rem;
+  border: 3.5px solid #33322e;
+  box-shadow: 10px 10px 0px 0px #33322e;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+body.dark-theme .card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: black;
+  border-radius: 2rem;
+  border: 3.5px solid white;
+  box-shadow: 10px 10px 0px 0px white;
   padding: 1.5rem;
   box-sizing: border-box;
 }
@@ -125,7 +253,7 @@ input:checked + .slider:before {
   margin-top: 1.5vh;
 }
 
-.circle-bg {
+body.light-theme .circle-bg {
   position: absolute;
   top: -0.5vh;
   left: 50%;
@@ -137,6 +265,18 @@ input:checked + .slider:before {
   z-index: 1;
 }
 
+body.dark-theme .circle-bg {
+  position: absolute;
+  top: -0.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 17vw;
+  height: 24vh;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
 #drink-image {
   position: relative;
   z-index: 2;
@@ -144,17 +284,30 @@ input:checked + .slider:before {
   height: 21vh;
   border-radius: 8rem;
   object-fit: cover;
-  border: 3.5px solid #000000;
+  /*border: 3.5px solid #000000;*/
   margin-top: 0.8vh;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
-.card-front h2 {
-  font-family: 'Luckiest Guy', cursive;
+body.light-theme .card-front h2 {
+  font-family: "Luckiest Guy", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+  color: #33322e;
+}
+
+body.dark-theme .card-front h2 {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: white;
 }
 
 .card-front p {
@@ -162,9 +315,16 @@ input:checked + .slider:before {
   margin: 0;
 }
 
-.back-content h3 {
-  font-family: 'Luckiest Guy', cursive;
-  color: #33322E;
+body.light-theme .back-content h3 {
+  font-family: "Luckiest Guy", cursive;
+  color: #33322e;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+body.dark-theme .back-content h3 {
+  font-family: "Luckiest Guy", cursive;
+  color: white;
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
 }
@@ -194,7 +354,19 @@ input:checked + .slider:before {
   padding: 0.5rem;
 }
 
-.ingredient-row {
+body.dark-theme .ingredient-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: white;
+}
+
+body.light-theme .ingredient-row {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -209,16 +381,35 @@ input:checked + .slider:before {
   margin-bottom: 0;
 }
 
-.ingredient-name {
+body.light-theme .ingredient-name {
   text-align: left;
   font-weight: 400;
-  color: #33322E;
+  color: #33322e;
   flex: 1;
   padding-right: 1rem;
 }
 
-.ingredient-measure {
-  background-color: #33322E;
+body.dark-theme .ingredient-name {
+  text-align: left;
+  font-weight: 400;
+  color: white;
+  flex: 1;
+  padding-right: 1rem;
+}
+
+body.dark-theme .ingredient-measure {
+  background-color: white;
+  color: #33322e;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1.5rem;
+  white-space: nowrap;
+}
+
+body.light-theme .ingredient-measure {
+  background-color: #33322e;
   color: #fff;
   text-align: center;
   font-weight: 600;
@@ -228,22 +419,43 @@ input:checked + .slider:before {
   white-space: nowrap;
 }
 
-.back-content h3::after {
-  content: '';
+body.light-theme .back-content h3::after {
+  content: "";
   display: block;
   width: 50%;
   height: 2px;
-  background-color: #33322E;
+  background-color: #33322e;
   margin: 0.5rem auto 1rem auto;
 }
 
-.btn {
+body.dark-theme .back-content h3::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: white;
+  margin: 0.5rem auto 1rem auto;
+}
+
+body.dark-theme .btn {
+  display: flex;
+  justify-content: center;
+  border-radius: 1.2rem;
+  color: black;
+  background-color: white;
+  border: 2px solid white;
+  height: 4.5vh;
+  transition: all 0.3s ease;
+  margin-top: 4vh;
+}
+
+body.white-theme .btn {
   display: flex;
   justify-content: center;
   border-radius: 1.2rem;
   color: white;
-  background-color: #33322E;
-  border: 2px solid #33322E;
+  background-color: #33322e;
+  border: 2px solid #33322e;
   height: 4.5vh;
   transition: all 0.3s ease;
   margin-top: 4vh;
@@ -253,14 +465,14 @@ input:checked + .slider:before {
   transform: translateY(-3px);
   color: black;
   background-color: white;
-  border: 2px solid #33322E;
+  border: 2px solid #33322e;
 }
 
 .modal-content {
   background: #fff;
   border-radius: 2rem;
-  border: 3.5px solid #33322E;
-  box-shadow: 10px 10px 0px 0px #33322E;
+  border: 3.5px solid #33322e;
+  box-shadow: 10px 10px 0px 0px #33322e;
   padding: 1.5rem;
 }
 
@@ -270,7 +482,7 @@ input:checked + .slider:before {
   align-items: center;
   position: relative;
   padding: 1rem 1rem;
-  border-bottom: 3px solid #33322E;
+  border-bottom: 3px solid #33322e;
 }
 
 .modal-title {
@@ -278,8 +490,8 @@ input:checked + .slider:before {
   margin: 0;
   font-weight: 500;
   text-align: center;
-  font-family: 'Luckiest Guy', cursive;
-  color: #33322E;
+  font-family: "Luckiest Guy", cursive;
+  color: #33322e;
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
 }
@@ -311,8 +523,8 @@ input:checked + .slider:before {
 
 .modal-ingredients h6,
 .modal-instructions h6 {
-  font-family: 'Luckiest Guy', cursive;
-  color: #33322E;
+  font-family: "Luckiest Guy", cursive;
+  color: #33322e;
   font-size: 1.1rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -320,11 +532,11 @@ input:checked + .slider:before {
 
 .modal-ingredients h6::after,
 .modal-instructions h6::after {
-  content: '';
+  content: "";
   display: block;
   width: 30%;
   height: 2px;
-  background-color: #33322E;
+  background-color: #33322e;
   margin: 0.5rem auto 1rem auto;
 }
 
@@ -334,7 +546,84 @@ input:checked + .slider:before {
 
 #recipe-instructions {
   font-family: "Roboto Flex", sans-serif;
-  color: #33322E;
+  color: #33322e;
   line-height: 1.5;
   font-size: 0.95rem;
+}
+
+.toggle-container span {
+  color: transparent;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  z-index: 9999;
+  padding: 0 2rem;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: -39rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0; 
+  padding: 0; 
+  margin-right: -39rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ccc;
+}
+
+.flavor-filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 4vh;
+  flex-wrap: wrap;
+  margin-left: -9vh;
+}
+
+.flavor-btn {
+  padding: 0.5rem 1.2rem;
+  font-family: "Roboto Flex", sans-serif;
+  background-color: #33322e;
+  color: white;
+  border: 2px solid #33322e;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.flavor-btn:hover,
+.flavor-btn.active {
+  background-color: white;
+  color: black;
 }
