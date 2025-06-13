@@ -25,10 +25,10 @@ body {
 }
 .card.my-custom-card {
   width: 50vw;
-  /* keine feste Höhe, damit sie wächst */
+ 
   position: relative;
-   margin-top: 3vh; /* statt top: -2vh */
-  position: static;       /* feste Start-Position von oben */
+   margin-top: 3vh; 
+  position: static;      
   margin-left: auto;
   margin-right: auto;
   border-radius: 2rem;
@@ -37,7 +37,7 @@ body {
   background-color: #fffdf6;
   box-shadow: 10px 10px 0 #33322E;
   border: 3px solid #33322E;
-  overflow-y: auto;      /* Scrollbar wenn nötig */
+  overflow-y: auto;     
   transform-origin: center center 0px;
   transition: all 0.5s ease-out;
   animation-name: animate;
@@ -49,7 +49,6 @@ body {
 }
 
 
-/* Hover-Animation aussetzen & Reset */
 .card.my-custom-card:hover {
   animation: unset;
   margin-top: 1vh;
@@ -247,7 +246,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;  /* Hoch genug, damit Navbar vor allem liegt */
+  z-index: 1000;  
   background-color: #000;
   height: 80px;
   display: flex;
@@ -259,7 +258,7 @@ body {
 
 .nav-container {
   display: flex;
-  justify-content: space-between; /* Logo links, Links rechts */
+  justify-content: space-between; 
   align-content: center;
   align-items: center;
   max-width: 1200px;
@@ -302,7 +301,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2rem; /* wegen Navbar */
+  padding-top: 2rem; 
   padding-bottom: 3rem;
   min-height: 100vh;
   background-color: #f8f9fa;

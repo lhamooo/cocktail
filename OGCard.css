@@ -166,12 +166,12 @@ input:checked + .slider:before {
   width: 25vw;
   height: 50vh;
   perspective: 1000px;
-  transition: transform 0.3s ease; /* Dauer & Timing */
+  transition: transform 0.3s ease;
   will-change: transform;
 }
 
 .card-container:hover {
-  transform: scale(1.05); /* Wert anpassen, z. B. 1.08 für stärker */
+  transform: scale(1.05); 
 }
 
 .card {
@@ -284,7 +284,6 @@ body.dark-theme .circle-bg {
   height: 21vh;
   border-radius: 8rem;
   object-fit: cover;
-  /*border: 3.5px solid #000000;*/
   margin-top: 0.8vh;
   -webkit-filter: grayscale(1);
   filter: grayscale(1);

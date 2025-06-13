@@ -51,4 +51,49 @@ async function loadCocktail() {
       `;
 
   document.body.appendChild(card);
+   makeDraggable(card);
+}
+
+
+
+function makeDraggable(card) {
+  let offsetX, offsetY;
+  let isDragging = false;
+
+  card.addEventListener("mousedown", (e) => {
+   
+    if (e.button !== 0) return;
+
+    isDragging = true;
+   
+    const rect = card.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+
+    card.style.transition = "none";
+    card.style.zIndex = 1000;
+  });
+
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    let x = e.clientX - offsetX;
+    let y = e.clientY - offsetY;
+
+    
+    x = Math.max(0, Math.min(window.innerWidth - card.offsetWidth, x));
+    y = Math.max(70, Math.min(window.innerHeight - card.offsetHeight, y)); 
+
+    card.style.left = x + "px";
+    card.style.top = y + "px";
+  });
+
+  window.addEventListener("mouseup", () => {
+    if (isDragging) {
+      isDragging = false;
+      card.style.transition = "transform 0.3s";
+      card.style.zIndex = ""; 
+    }
+  });
 }
