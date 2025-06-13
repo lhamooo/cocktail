@@ -1,3 +1,4 @@
+/* Body */
 body.light-theme {
   background-color: #f8f9fa;
   display: flex;
@@ -39,6 +40,8 @@ body.light-theme .title {
   font-size: 5rem;
   transition: all 0.3s ease-in-out;
 }
+
+/* Picture with Text in top */
 .topp {
   display: flex;
   align-items: center;
@@ -80,6 +83,7 @@ body.dark-theme .drinkImg {
   text-align: center;
 }
 
+/* Toggle Switch */
 .switch {
   position: relative;
   display: inline-block;
@@ -153,6 +157,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* cards */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -289,6 +294,7 @@ body.dark-theme .circle-bg {
   filter: grayscale(1);
 }
 
+/* Card-Switch */
 body.light-theme .card-front h2 {
   font-family: "Luckiest Guy", cursive;
   font-weight: 400;
@@ -467,6 +473,7 @@ body.light-theme .btn {
   border: 2px solid #33322e;
 }
 
+/* Modal */
 body.light-theme .modal-content {
   background: #fff;
   border-radius: 2rem;
@@ -651,6 +658,7 @@ body.light-theme #recipe-instructions {
   color: transparent;
 }
 
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -698,6 +706,7 @@ body.light-theme #recipe-instructions {
   color: #ccc;
 }
 
+/* Filter-Buttons */
 .flavor-filter-container {
   display: flex;
   justify-content: center;
